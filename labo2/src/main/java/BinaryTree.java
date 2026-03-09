@@ -105,8 +105,14 @@ public class BinaryTree {
     }
 
     public double averageDepth() {
-        return  ((double) (height() * numberOfLeaves())) /(double) numberOfSplits();
-    }
+        double depth = 0.0;
+        if (left != null){
+            depth += (left.averageDepth()+1)*left.numberOfLeaves();
+        }
+        if (right != null){
+            depth += (right.averageDepth()+1)*right.numberOfLeaves();
+        }
+        return depth/numberOfLeaves();    }
 
     @Override
     public String toString() {
