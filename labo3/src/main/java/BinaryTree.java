@@ -1,5 +1,6 @@
 /**
  * A Simple BinaryTree class.
+ *
  * @author sleroux
  */
 public class BinaryTree {
@@ -7,12 +8,15 @@ public class BinaryTree {
     private BinaryTree left;
     private BinaryTree right;
     private String value;
+    private int weight;
 
     // ToDo: add data attributes if needed
     // ToDo: add constructors or methods if needed
     // ToDo: implement toString
 
-    public BinaryTree(){}
+    public BinaryTree() {
+        this.weight = 0;
+    }
 
     public BinaryTree(BinaryTree other) {
         if (other != null) {
@@ -27,7 +31,7 @@ public class BinaryTree {
             }
         }
     }
-    
+
     public boolean isLeaf() {
         return (left == null) && (right == null);
     }
@@ -48,9 +52,21 @@ public class BinaryTree {
         this.right = right;
     }
 
-    public String getValue() {return value;}
+    public String getValue() {
+        return value;
+    }
 
-    public void setValue(String value){ this.value = value;}
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
     @Override
     public String toString() {
@@ -61,12 +77,12 @@ public class BinaryTree {
         String tabs = "\t".repeat(depth);
         String result = "";
         if (value != null) {
-            result = value;
+            result = value + " " + weight;
         }
         if (left != null) {
             result += "\n" + tabs + "--Y-->" + left.toString(depth + 1);
         }
-        if (right != null){
+        if (right != null) {
             result += "\n" + tabs + "--N-->" + right.toString(depth + 1);
         }
         return result;
