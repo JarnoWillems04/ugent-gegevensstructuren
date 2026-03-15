@@ -72,8 +72,27 @@ public class HuffmanCoder {
      * separated by spaces
      */
     public String encode(String text) {
-        // ToDo use the Huffman tree to encode the text
-        return null;
+        StringBuilder rc = new StringBuilder();
+
+        BinaryTree traversalTree = new BinaryTree(tree);
+
+        for(char c : text.toCharArray()){
+
+            while (!traversalTree.isLeaf()){
+                if (traversalTree.getLeft().getValue().contains(c+"")){
+                    rc.append("1");
+                    traversalTree = traversalTree.getLeft();
+                }
+                else{
+                    rc.append("0");
+                    traversalTree = traversalTree.getRight();
+                }
+            }
+            traversalTree = new BinaryTree(tree);
+            rc.append(" ");
+        }
+
+        return rc.toString();
     }
 
     /**
@@ -85,8 +104,24 @@ public class HuffmanCoder {
      * @return The decoded text
      */
     public String decode(String code) {
-        // ToDo use the Huffmantree to decode the code
-        return null;
+        StringBuilder text = new StringBuilder();
+
+        BinaryTree traversalTree = new BinaryTree(tree);
+
+        for (char c : code.toCharArray()){
+            if (c == ' '){
+                text.append(traversalTree.getValue());
+                traversalTree = new BinaryTree(tree);
+            }
+            else if(c == '1') {
+                traversalTree = traversalTree.getLeft();
+            }
+            else {
+                traversalTree = traversalTree.getRight();
+            }
+        }
+
+        return text.toString();
     }
 
     public BinaryTree getTree() {

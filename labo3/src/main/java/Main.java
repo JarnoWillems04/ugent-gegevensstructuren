@@ -21,20 +21,20 @@ public class Main {
         BinaryTree tree = coder.getTree();
         System.out.println(tree);
         
-//        String code = coder.encode(text);
-//        System.out.println(code);
-//
-//        int bits = 0;
-//        for (char cc: code.toCharArray()){
-//            if (cc == '0' || cc =='1'){
-//                bits++;
-//            }
-//        }
-//        System.out.println("");
-//        System.out.println("Huffman encoding requires "+bits+" bits");
-//
-//        String decoded = coder.decode(code);
-//        System.out.println("Decoded: "+decoded);
+        String code = coder.encode(text);
+        System.out.println(code);
+
+        int bits = 0;
+        for (char cc: code.toCharArray()){
+            if (cc == '0' || cc =='1'){
+                bits++;
+            }
+        }
+        System.out.println("");
+        System.out.println("Huffman encoding requires "+bits+" bits");
+
+        String decoded = coder.decode(code);
+        System.out.println("Decoded: "+decoded);
         
     }
 }
