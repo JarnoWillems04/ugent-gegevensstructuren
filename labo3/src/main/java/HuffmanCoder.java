@@ -48,11 +48,6 @@ public class HuffmanCoder {
                 }
             }
 
-//            trees.sort(Comparator.comparingInt(BinaryTree::getWeight));
-//
-//            BinaryTree bt1 = trees.get(0);
-//            BinaryTree bt2 = trees.get(1);
-
             BinaryTree bt = new BinaryTree();
             bt.setLeft(bt1);
             bt.setRight(bt2);
@@ -66,8 +61,6 @@ public class HuffmanCoder {
 
         tree = trees.getFirst();
     }
-
-    // ToDo: add additional methods if needed
 
     /**
      * Encode a text by replacing each character with its Huffman code
