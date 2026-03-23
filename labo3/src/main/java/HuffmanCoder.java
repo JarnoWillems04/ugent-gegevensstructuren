@@ -48,6 +48,11 @@ public class HuffmanCoder {
                 }
             }
 
+//            trees.sort(Comparator.comparingInt(BinaryTree::getWeight));
+//
+//            BinaryTree bt1 = trees.get(0);
+//            BinaryTree bt2 = trees.get(1);
+
             BinaryTree bt = new BinaryTree();
             bt.setLeft(bt1);
             bt.setRight(bt2);
@@ -80,11 +85,11 @@ public class HuffmanCoder {
 
             while (!traversalTree.isLeaf()){
                 if (traversalTree.getLeft().getValue().contains(c+"")){
-                    rc.append("1");
+                    rc.append("0");
                     traversalTree = traversalTree.getLeft();
                 }
                 else{
-                    rc.append("0");
+                    rc.append("1");
                     traversalTree = traversalTree.getRight();
                 }
             }
@@ -113,7 +118,7 @@ public class HuffmanCoder {
                 text.append(traversalTree.getValue());
                 traversalTree = new BinaryTree(tree);
             }
-            else if(c == '1') {
+            else if(c == '0') {
                 traversalTree = traversalTree.getLeft();
             }
             else {

@@ -5,7 +5,7 @@
 public class Main {
     public static void main(String[] args) {
         String text = "Test Test Test test test test";
-//        text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbccccccccccccccccccccddddd";
+        text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbccccccccccccccccccccddddd";
         System.out.println(text);
         
         char[] characters = text.toCharArray();               
