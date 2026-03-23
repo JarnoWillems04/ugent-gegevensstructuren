@@ -13,7 +13,7 @@ public class JaccardIndexDuplicateFinder extends DuplicateFinder{
     }
 
     @Override
-    public List<Pair> findDuplicates(double threshold) { // alleen returen wat boven de threshold komt
+    public List<Pair> findDuplicates(double threshold) { // alleen returnen wat boven de threshold komt
         ArrayList<Pair> pairs = new ArrayList<>();
 
 

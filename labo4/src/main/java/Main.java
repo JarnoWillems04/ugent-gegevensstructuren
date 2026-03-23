@@ -83,7 +83,7 @@ public class Main {
 
             long start = System.currentTimeMillis();
             // ToDo
-            DuplicateFinder df = new JaccardIndexDuplicateFinder(tokens);
+            DuplicateFinder df = new JaccardIndexDuplicateFinderInt(tokens);
             System.out.println("Initialization took " + (System.currentTimeMillis() - start) + " ms");
 
             start = System.currentTimeMillis();
