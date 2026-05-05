@@ -29,8 +29,100 @@ public class Treap {
     }
 
     public void add(int key) {
-        // ToDo implement this method
+        Node node = new Node(key);
+
+        if (root == null){
+            root = node;
+            return;
+        }
+        System.out.println("Added to basic BST...");
+        /* Regular BST */
+        Node localRoot = root;
+        Node parent = root;
+
+        while(localRoot != null){
+            parent = localRoot;
+            if (localRoot.value > node.value){
+                localRoot = localRoot.left;
+            }
+            else {
+                localRoot = localRoot.right;
+            }
+        }
+
+        if (parent.value > node.value){
+            parent.left = node;
+        }
+        else {
+            parent.right = node;
+        }
+        node.parent = parent;
+        /*    -----    */
+
+        System.out.println("Fixing priorities...");
+        while (parent.priority < node.priority){
+
+            System.out.println("parent: " + parent.priority + ", node: " + node.priority);
+
+            if (parent.parent == null){
+                root = node;
+                Node h;
+                if (parent.value > node.value) {
+                    h = node.right;
+                    node.right = parent;
+                    parent.left = h;
+                }
+                else {
+                    h = node.left;
+                    node.left = parent;
+                    parent.right = h;
+                }
+                parent.parent = node;
+                node.parent = null;
+                if (h != null) h.parent = parent;
+                break;
+            }
+
+            node.parent = parent.parent;
+            Node h;
+            if (parent.value > node.value){ // staat er links van
+                // rotate right
+                if (parent.parent == null){
+                    root = node;
+                }
+                else if (parent.parent.value > parent.value){
+                    parent.parent.left = node;
+                }
+                else {
+                    parent.parent.right = node;
+                }
+                h = node.right;
+                node.right = parent;
+                parent.left = h;
+            }
+            else {
+                // rotate left
+                if (parent.parent == null){
+                    root = node;
+                }
+                else if (parent.parent.value > parent.value){
+                    parent.parent.left = node;
+                }
+                else {
+                    parent.parent.right = node;
+                }
+                h = node.left;
+                node.left = parent;
+                parent.right = h;
+            }
+            parent.parent = node;
+            if (h != null) h.parent = parent;
+            parent = node.parent;
+        }
+
+        System.out.println("Node added!");
     }
+
 
     ///////////////////////////////////////////////////////////////////////////
     // Provided methods, no changes are needed here
